@@ -1,3 +1,8 @@
+//Justin Ramirez
+//CSC 2720 Lab CS225
+//Lab time: W 1300
+//Due time: 1/15
+
 import java.util.Scanner;
 
 public class GuessMyNumber{
