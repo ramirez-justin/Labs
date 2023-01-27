@@ -11,21 +11,21 @@ public class BubbleSort {
     }
 
     // Method to sort an array using bubble sort method
-    public static void bubbleSort(int x[]) {
-        int n = x.length;
-        boolean swpd;
-        do {
+    public static void bubbleSort(int x[]) { // input size n
+        int n = x.length;   // 1 step
+        boolean swpd;   // 1 step
+        do {   // n-1 times
             swpd = false;
-            for (int i = 0; i < n-1; i++) {
-                if (x[i] > x[i+1]) {
-                    int temp = x[i];
-                    x[i] = x[i+1];
-                    x[i+1] = temp;
-                    swpd = true;
+            for (int i = 0; i < n-1; i++) {   // n-1 times
+                if (x[i] > x[i+1]) {   // 2 steps
+                    int temp = x[i];   // 1 step, 1 space
+                    x[i] = x[i+1];   // 1 step
+                    x[i+1] = temp;   // 1 step
+                    swpd = true;   // 1 step
                 }
             }
-        } while (swpd);
-    }
+        } while (swpd); // 2 + n^2 + 6 -> O(n^2)
+    }   // space complexity O(1)
 
     // Method to print the array
     public static void printArray(int[] a){
