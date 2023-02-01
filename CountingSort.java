@@ -13,12 +13,13 @@ public class CountingSort {
     // Method to sort array using counting sort
     public static void countingSort(int[] x) {
         int max = 0;
+        // Determines the max number in the given array
         for (int i = 0; i < x.length; i++) {
             if (x[i] > max) {
                 max = x[i];
             }
         }
-
+        
         int[] count = new int[max + 1];
         for (int i = 0; i < x.length; i++) {
             count[x[i]]++;
