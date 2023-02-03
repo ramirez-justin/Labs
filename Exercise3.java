@@ -3,24 +3,28 @@
 //Lab time: W 1300
 //Due time: 1/29
 
-// Big-O time analysis for bubble sort
+// Big-O time analysis for insertion sort
     // O(n^2)
-// Big-O space analysis for bubble sort
+// Big-O space analysis for insertion sort
     // O(1)
-// Big-O time analysis for counting sort
-    // O(n*log(n))
-// Big-O space analysis for counting sort
-    // O(n)
+// Big-O time analysis for selection sort
+    // O(n^2)
+// Big-O space analysis for selection sort
+    // O(1)
 /* Comparison between two algorithms. 
  * 
- * The time complexity of my bubble sort code is O(n^2) and the space complexity is O(1)
- * This is because the outer loop runs for n-1 times and the inner loop runs for 
- * n-1 times for each iteration of the outer loop. The inner loop also performs a swap operation which takes constant time.
- * The space complexity is O(1) because it uses a single temporary variable to perform the swap operation, which does not grow with the size of the input.
+ * The time complexity of the insertion sort algorithm is O(n^2). The outer 'for' loop runs n times, 
+ * and the inner 'while' loop may run n times in the worst case, when the array is sorted in decreasing 
+ * order, so the total number of operations is O(n^2). The space complexity is O(1), as the algorithm 
+ * sorts the array in place and uses only a few variables to keep track of the current position in the array.
  * 
- * The time complexity of the counting sort algorithm is O(n) + O(n) + O(n) + O(nlog(n)) = O(nlog(n))
- * The space complexity, you are creating a new count array with the size max + 1, which is O(n) in worst case 
- * scenario, so the space complexity of the algorithm is O(n).
+ * The time complexity of selection sort is O(n^2) where n is the number of elements in the array. 
+ * This is because in each iteration, the algorithm needs to traverse the entire unsorted part of 
+ * the array to find the minimum element, which takes O(n) time, and the number of iterations is n, 
+ * making the total time complexity O(n^2). The space complexity of selection sort is O(1) because 
+ * it sorts the elements in place, i.e., it does not require any extra memory to store the intermediate results.
  * 
- * This means that bubble sort while requiring les space for any size problem will require a lot more time as the input size increases
-*/
+ * The time complexity of both algorithms is the same but Insertion Sort has an advantage over 
+ * Selection Sort when the input array is partially sorted or nearly sorted, because in that case 
+ * the time complexity would be closer to O(n) as the number of shifts needed would be significantly less
+ */
