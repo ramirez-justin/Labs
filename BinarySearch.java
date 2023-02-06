@@ -7,6 +7,7 @@ import java.util.*;
 
 public class BinarySearch {
     public static void main(String[] args) {
+        // I hard coded the array but it would be really easy to use the same methods from my DeDuplication class
         int a[] = { 11, 21, 33, 40, 50 };
         Scanner sc = new Scanner(System.in);
         System.out.print("Please enter a number to search for: ");
