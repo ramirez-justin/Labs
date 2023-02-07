@@ -25,5 +25,6 @@ public class Practice {
             }
             guess = (low + high) / 2;
         }
+        sc.close();
     }
 }
