@@ -1,7 +1,8 @@
+
 public class QuickSort {
     public static void main(String[] args) {
         int[] nums = { 50, 11, 33, 21, 40, 50, 40, 40, 21 };
-        nums = quickSort(nums);
+        quickSort2(nums, 0, nums.length-1);
         printArray(nums);
     }
 
@@ -49,5 +50,30 @@ public class QuickSort {
             System.out.print(x[i] + " ");
         }
         System.out.println();
+    }
+
+    public static void quickSort2(int[] arr, int low, int high) {
+        if (low<high){
+            int pivotIndex = partition(arr, low, high);
+            quickSort2(arr, low, pivotIndex-1);
+            quickSort2(arr, pivotIndex+1,high);
+        }
+    }
+
+    public static int partition(int[] arr, int low, int high) {
+        int pivot = arr[arr.length-1];
+        int pi = low-1;
+        for (int i = low; i <= high-1; i++) {
+            if (arr[i] < pivot) {
+                pi++;
+                int temp = arr[pi];
+                arr[pi] = arr[i];
+                arr[i] = temp; 
+            }
+        }
+        int temp = arr[pi+1];
+        arr[pi+1] = arr[high];
+        arr[high] = temp;
+        return (pi+1);
     }
 }
