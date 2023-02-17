@@ -2,12 +2,40 @@
 public class QuickSort {
     public static void main(String[] args) {
         int[] nums = { 50, 11, 33, 21, 40, 50, 40, 40, 21 };
-        quickSort2(nums, 0, nums.length-1);
+        quickSort(nums, 0, nums.length-1);
+        nums = removeDuplicates(nums, nums.length);
         printArray(nums);
     }
 
-    // My method for sorting the array
-    public static int[] quickSort(int[] arr){
+    // This method solves the lab as requested in O(n log2(n)) time complexity
+    // it uses the partition method to solit the arrays
+    public static void quickSort(int[] arr, int low, int high) {
+        if (low < high){
+            int pivotIndex = partition(arr, low, high);
+            quickSort(arr, low, pivotIndex-1);
+            quickSort(arr, pivotIndex+1, high);
+        }
+    }
+
+    public static int partition(int[] arr, int low, int high) {
+        int pivot = arr[high];
+        int pi = low-1;
+        for (int i = low; i <= high-1; i++) {
+            if (arr[i] < pivot) {
+                pi++;
+                int temp = arr[pi];
+                arr[pi] = arr[i];
+                arr[i] = temp; 
+            }
+        }
+        int temp = arr[pi+1];
+        arr[pi+1] = arr[high];
+        arr[high] = temp;
+        return (pi+1);
+    }
+
+    // This is a different method I found in a book I was reading,
+    public static int[] quickSort2(int[] arr){
         if (arr.length < 2) // base case
             return arr;
         int pivot = arr[0]; // Recursive case
@@ -31,8 +59,8 @@ public class QuickSort {
             sortedGreater[i] = greater[i];
         }
         // run them back through the quicksort to properly sort them
-        sortedLess = quickSort(sortedLess);
-        sortedGreater = quickSort(sortedGreater);
+        sortedLess = quickSort2(sortedLess);
+        sortedGreater = quickSort2(sortedGreater);
         // Create new array with proper length
         int[] result = new int[low + 1 + high];
         for (int i = 0; i < low; i++) {
@@ -52,28 +80,27 @@ public class QuickSort {
         System.out.println();
     }
 
-    public static void quickSort2(int[] arr, int low, int high) {
-        if (low<high){
-            int pivotIndex = partition(arr, low, high);
-            quickSort2(arr, low, pivotIndex-1);
-            quickSort2(arr, pivotIndex+1,high);
-        }
-    }
-
-    public static int partition(int[] arr, int low, int high) {
-        int pivot = arr[arr.length-1];
-        int pi = low-1;
-        for (int i = low; i <= high-1; i++) {
-            if (arr[i] < pivot) {
-                pi++;
-                int temp = arr[pi];
-                arr[pi] = arr[i];
-                arr[i] = temp; 
+    public static int[] removeDuplicates(int[] arr, int n) {
+        int[] temp = new int[n];
+        int k = 0;
+        for (int i = 0; i < n-1; i++) {
+            boolean isDuplicate = false;
+            for (int j = 0; j < i; j++) {
+                if (arr[i] == temp[j]) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+            if (!isDuplicate) {
+                temp[k++] = arr[i];
             }
         }
-        int temp = arr[pi+1];
-        arr[pi+1] = arr[high];
-        arr[high] = temp;
-        return (pi+1);
+
+        int[] newArr = new int[k];
+        for (int i = 0; i < k; i++) {
+            newArr[i] = temp[i];
+        }
+
+        return newArr;
     }
 }
