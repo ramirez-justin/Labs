@@ -2,29 +2,36 @@ import java.util.Scanner;
 
 public class Practice {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter an integer n: ");
-        int n = sc.nextInt();
-        int low = 0;
-        int high = n-1;
-        int guess = (low + high) / 2;
-        System.out.println("Welcome to Guess My Number!" + "\nPlease think of a number between 0 and "+ high);
-
-        while (low <= high) { 
-            System.out.print("Is yor number " + guess + "? \nEnter your response (H/L/C): ");
-            char response = sc.next().charAt(0);
-            if (response == 'L') {
-                low = guess + 1;
-            } else if (response == 'H') {
-                high = guess - 1;
-            } else if (response == 'C') {
-                System.out.println("I guessed your number!");
-                break;
-            } else {
-                System.out.println("Invalid response. Please enter 'l', 'h', or 'c'.");
-            }
-            guess = (low + high) / 2;
-        }
-        sc.close();
+        int[] arr = { 3, 0, 1 };
+        System.out.println(inClassEx1(arr));
     }
+
+    public static int inClassEx1(int[] arr) {
+        int max = 0;
+        int sum = 0;
+        for (int i = 0; i < arr.length-1; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+            sum = sum + arr[i];
+        }
+        for (int i = 0; i < arr.length; i++){
+            int n = ;
+        }
+        return n;
+    }
+
+    public static void rotate(int[] arr) {
+        int l = 0;
+        int r = arr.length-1;
+        while (l <= r) {
+            int m = l + (r - l) / 2;
+            if (arr[l] < arr[m]) {
+                l = m;
+            }
+        }
+    }
+
+    
+
 }
