@@ -15,7 +15,7 @@ public class QuickSort2 {
         int high = 0;
         int[] less = new int[arr.length]; // Sub-array of all elements less than pivot
         int[] greater = new int[arr.length]; // Sub-array of all elements greater than pivot
-        for (int i = 1; i < arr.length; i++){
+        for (int i = 1; i < arr.length; i++){   // O(n) Time
             if (arr[i] <= pivot)
                 less[low++] = arr[i]; // adds elements less than or equal to pivot to less
             else 
@@ -32,7 +32,7 @@ public class QuickSort2 {
         }
         // run them back through the quicksort to properly sort them
         sortedLess = quickSort2(sortedLess);
-        sortedGreater = quickSort2(sortedGreater);
+        sortedGreater = quickSort2(sortedGreater);  // These recursive methods are O(log(n)) time complexity
         // Create new array with proper length
         int[] result = new int[low + 1 + high];
         for (int i = 0; i < low; i++) {

@@ -1,8 +1,8 @@
-/* Your Name
+/* Justin Ramirez
  * CSc 2720 Lab #6
  * Lab time: W1300
  * Due time: 02/19/2023 @ 2359
-*/
+ */
 public class QuickSort {
 
     /* Test Cases:
@@ -24,30 +24,32 @@ public class QuickSort {
     // it uses the partition method to split the array
     public static void quickSort(int[] arr, int low, int high) {
         if (low < high){
-            int pivotIndex = partition(arr, low, high);
-            quickSort(arr, low, pivotIndex-1);
-            quickSort(arr, pivotIndex+1, high);
-        }
+            int pivotIndex = partition(arr, low, high); // Use partition to choose pivot & reorganize values less or higher than pivot
+            quickSort(arr, low, pivotIndex-1); // recursively call quick sort for the range on the left of pivotIndex
+            quickSort(arr, pivotIndex+1, high); // recursively call quick sort for the range on the right of pivotIndex
+        }   // O(log(n))
     }
-
+    // This method chooses a pivot and places all smaller to the left and all larger to the right
     public static int partition(int[] arr, int low, int high) {
-        int pivot = arr[high];
-        int pi = low-1;
+        int pivot = arr[high];  // Pivot value is last index in array
+        int pi = low-1; // lower pointer
         for (int i = low; i <= high-1; i++) {   //   O(n)
             if (arr[i] < pivot) {
-                pi++;
-                int temp = arr[pi];
+                pi++;   // increment smaller pointer
+                int temp = arr[pi]; // swap
                 arr[pi] = arr[i];
                 arr[i] = temp; 
             }
         }
-        int temp = arr[pi+1];
+        int temp = arr[pi+1];   // swap
         arr[pi+1] = arr[high];
         arr[high] = temp;
         return (pi+1);
     }
 
     public static void printArray(int[] x){
+        if (x.length == 0 || x == null)
+            System.out.println("The array is empty!");
         for (int i = 0; i < x.length; i++) {
             System.out.print(x[i] + " ");
         }
@@ -60,12 +62,12 @@ public class QuickSort {
         }
         int j = 0;
         for (int i = 0; i < arr.length; i++) {  // O(n) time
-            if (arr[i] != arr[j]) {
-                j++;
+            if (arr[i] != arr[j]) {     // if pointer i is noty equal to pointer j,
+                j++;                    //  increment j and store value of i at j
                 arr[j] = arr[i];
             }
         }
-        int[] newArr = new int[j+1];
+        int[] newArr = new int[j+1];    // New array of size j
         for (int i = 0; i < j+1; i++) { // O(n) time
             newArr[i] = arr[i];
         }

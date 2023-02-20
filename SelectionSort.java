@@ -10,6 +10,7 @@ public class SelectionSort {
         printArray(nums);
     }
 
+    // My method for selsction sort
     public static void selectionSort(int arr[]) {   // input size 1
         int n = arr.length;
         // One by one move boundary of unsorted subarray
