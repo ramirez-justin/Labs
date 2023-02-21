@@ -13,23 +13,21 @@ public class SelectionSort {
     // My method for selsction sort
     public static void selectionSort(int arr[]) {   // input size 1
         int n = arr.length;
+  
         // One by one move boundary of unsorted subarray
-        boolean swap;
-        do {        // n time
-            swap = false;
-            for (int i = 0; i < n-1; i++) { // n-1 time
-                // Find the minimum element in unsorted array
-                int min_idx = i;    // 1 step
-                if (arr[i + 1] < arr[min_idx]) {  
-                    min_idx = i + 1;    // 1 step
-                    // Swap the found minimum element with the first element
-                    int temp = arr[min_idx];
-                    arr[min_idx] = arr[i];
-                    arr[i] = temp;
-                    swap = true;
-                }
+        for (int i = 0; i < n-1; i++) {
+            // Find the minimum element in unsorted array
+            int min_idx = i;
+            for (int j = i + 1; j < n; j++){
+                if (arr[j] < arr[min_idx])
+                    min_idx = j;
             }
-        } while (swap);
+            // Swap the found minimum element with the first
+            // element
+            int temp = arr[min_idx];
+            arr[min_idx] = arr[i];
+            arr[i] = temp;
+        }
     }
 
     public static void printArray(int[] arr) {

@@ -13,8 +13,8 @@ class DataStructuresAssignment2 {
      * Unsorted arrays
      */
     public static void main(String[] args) {
-        String[] words = { "spring", "summer", "fall", "summer", "winter"};
-        String[] flowers = { "Rose", "Lily", "Tulip", "Daisy", "Orchid"};
+        String[] words = { "spring", "summer", "fall", "summer", "winter" };
+        String[] flowers = { "Rose", "Lily", "Tulip" };
         int[] nums = { 3, 4, 7, 6, 1 };
         hasDuplicates(words);
         flowers = sortFlowers(flowers);
@@ -39,14 +39,15 @@ class DataStructuresAssignment2 {
         System.out.println(isDuplicate);    // print result
     }
 
+    // My method for sorting an array of flowers alphabetically
     public static String[] sortFlowers(String[] flowers) {
-        boolean swap;
+        boolean swap;   // boolean used as a termination condition for the do while loop
         // Selection sort with a do while loop
         do {
             swap = false;
-            for (int i = 0; i < flowers.length - 1; i++) {
-                if (flowers[i].charAt(0) > flowers[i+1].charAt(0)){
-                    swapWords(flowers, i, i+1);
+            for (int i = 0; i < flowers.length - 1; i++) {  // O(n) time
+                if (flowers[i].charAt(0) > flowers[i+1].charAt(0)){ // compare the first character of each element to all others using .charAt 
+                    swapWords(flowers, i, i+1); // Flip the elements in the array which are in the wrong order
                     swap = true;
                 }
             }
@@ -72,6 +73,7 @@ class DataStructuresAssignment2 {
         x[z] = temp;
     }
 
+    // My method for swapping two words in an array
     public static void swapWords(String[] x, int y, int z) {
         String temp = x[y];    // space complexity O(1)
         x[y] = x[z];
@@ -97,5 +99,4 @@ class DataStructuresAssignment2 {
         }
         System.out.println();
     }
-
 }
