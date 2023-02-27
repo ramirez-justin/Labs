@@ -1,7 +1,7 @@
 //Justin Ramirez
 //CSC 2720 Lab CS225
 //Lab time: W 1300
-//Due time: 2/12/2023 @ 11:59PM
+//Due time: 2/26/2023 @ 11:59PM
 
 public class MyLinkedListClass {
     Node head;  // first object in my linked list
