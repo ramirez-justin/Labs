@@ -15,22 +15,28 @@ public class DataStructuresAssignment1 {
     public static void main(String[] args) {
         int[] arr1 = {1, 5, 6, 6, 9, 9, 9, 11, 11, 21};
         int[] arr2 = {6, 6, 9, 11, 21, 21, 21};
+        System.out.println("Here is array one:");
+        printArray(arr1);
+        System.out.println("Here is array two");
+        printArray(arr2);
         arr1 = quickSort(arr1);
         arr2 = quickSort(arr2);
         int[] newArr1 = solutionOne(arr1, arr2);
         int[] newArr2 = solutionTwo(arr1, arr2);
+        System.out.println("Here is the new array using solution one:");
         printArray(newArr1);
+        System.out.println("Here is the new array using solution two:");
         printArray(newArr2); 
     }
 
     // My solution for problem 1
     public static int[] solutionOne(int[] arr1, int[] arr2) {
-        isEmpty(arr1, arr2); // check if one or both arrays is empty
-        int[] newArr1 = new int[arr1.length]; // New array to store matches
-        int x = 0; // Counter for the number of elements in my new array of matches
-        for (int i = 0; i < arr1.length; i++) { // O(n)
-            for (int j = 0; j < arr2.length; j++) { //O(m)
-                if (arr1[i] == arr2[j]) { // checks elements in arr1 against arr2 until match is found
+        isEmpty(arr1, arr2);    // check if one or both arrays is empty
+        int[] newArr1 = new int[arr1.length];   // New array to store matches
+        int x = 0;  // Counter for the number of elements in my new array of matches
+        for (int i = 0; i < arr1.length; i++) {     // O(n)
+            for (int j = 0; j < arr2.length; j++) {     //O(m)
+                if (arr1[i] == arr2[j]) {   // checks elements in arr1 against arr2 until match is found
                     newArr1[x++] = arr1[i];
                     break;
                 }
