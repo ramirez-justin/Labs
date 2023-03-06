@@ -1,3 +1,7 @@
+// Justin Ramirez
+// CSC 2720 Assignment2
+// Class Time: TH 1415
+// Due time: 3/5/2023 @ 2359
 import java.util.*;
 /* Test Cases: 
  * Handling empty Queue
@@ -6,7 +10,7 @@ import java.util.*;
  * A varied number of duplicates
  * Try/catch block to handle improper input
  * If statement to handle improper mode selection input
-*/
+ */
 public class QueueWithMax {
     public static void main(String[] args){
         // Created two new objects, mainQueue and maxQueue

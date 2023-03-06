@@ -37,40 +37,38 @@ public class TowersOfHanoi extends JFrame implements ActionListener, Runnable {
     }
     
     public TowersOfHanoi() {
-        h[0]=6;
-        h[1]=0;
-        h[2]=0;
-        setLayout(null);
-        setSize(fwidth, fheight);
-        setTitle("Towers Of Hanoi ");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      h[0]=6;
+      h[1]=0;
+      h[2]=0;
+      setLayout(null);
+      setSize(fwidth, fheight);
+      setTitle("Towers Of Hanoi ");
+      this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        start.setBounds(300, 520,100,25);
-        exit.setBounds(600, 520,100,25);
-        numof_moves.setBounds(100,50,300,25);
-        present_move.setBounds(300,50,300,25);
-       //title.setBounds(850,10,100,500);
-        add(start);
-        add(exit);
-        add(numof_moves);
-        add(present_move);
-       // add(title);
+      start.setBounds(300, 520,100,25);
+      exit.setBounds(600, 520,100,25);
+      numof_moves.setBounds(100,50,300,25);
+      present_move.setBounds(300,50,300,25);
+      // title.setBounds(850,10,100,500);
+      add(start);
+      add(exit);
+      add(numof_moves);
+      add(present_move);
+      // add(title);
         
-     //disk[0] large size
-        
-         for(int i=0;i<n;i++)
-         {disk[i]=new Rectangle(150+i*12,475-i*25,200-i*25, 25);
-          peg_capacity[0][i]=i; //pushing disk numbers in to first peg                
-         }
+      //disk[0] large size  
+      for(int i=0;i<n;i++) {
+        disk[i]=new Rectangle(150+i*12,475-i*25,200-i*25, 25);
+        peg_capacity[0][i]=i; //pushing disk numbers in to first peg                
+      }
          
-         peg[0]=new Rectangle(250,200,15,300);
-         peg[1]=new Rectangle(510,200,15,300);
-         peg[2]=new Rectangle(760,200,15,300);
+      peg[0]=new Rectangle(250,200,15,300);
+      peg[1]=new Rectangle(510,200,15,300);
+      peg[2]=new Rectangle(760,200,15,300);
          
       
-        start.addActionListener(this);
-        exit.addActionListener(this);
-      
+      start.addActionListener(this);
+      exit.addActionListener(this);  
     }
     
     public int dy(int x){return fheight-x;}

@@ -30,25 +30,20 @@ public class DeDuplication {
         }
     }
 
-    // My method for removing the duplicates
+    // My method for removing the duplicates, requires sorting
     public static int[] removeDuplicates(int[] arr) {
-        int[] newArr = new int[arr.length];
-        int k = 0;
-        for (int i = 0; i < arr.length; i++) {
-            boolean isDuplicate = false;
-            for (int j = 0; j < i; j++) {
-                if (arr[i] == newArr[j]) {
-                    isDuplicate = true;
-                    break;
-                }
-            }
-            if (!isDuplicate) {
-                newArr[k++] = arr[i];
+        int current = arr[0];   // pointer to track current index
+        int k = 1;      // unique counter for new array length
+        for (int i = 1; i < arr.length; i++) {  // iterate through array once to compare current with i pointer beginning at 1
+            if (arr[i] != current){     // not a duplicate
+                arr[k] = arr[i];        // move next non duplicate to next non double spot 
+                current = arr[i];       // move value of curent
+                k++;
             }
         }
-        int[] b = new int[k];
-        for (int i = 0; i < (k); i++){
-            b[i] = newArr[i];
+        int[] b = new int[k];   // initialize new array of length k
+        for (int i = 0; i < k; i++){    // fill the new array using the rearanged arr
+            b[i] = arr[i];
         }
         return b;
     }
