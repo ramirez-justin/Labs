@@ -1,2 +1,2 @@
-These are projects from my Data Structures class
+These are projects from various class, I am still learning.
 
