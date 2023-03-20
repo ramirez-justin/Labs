@@ -58,7 +58,7 @@ public class MinStack {
         sc.close();
     }
 
-    public MinStack() {     // contstructor
+    public MinStack() {     // contstructor for MinStack
         stack = new Stack<>();
         minStack = new Stack<>();
     }
@@ -70,7 +70,7 @@ public class MinStack {
         }
     }
 
-    public void pop() { // method to remove nu8mber from stack
+    public void pop() { // method to remove number from stack
         int val = stack.pop();
         System.out.println("The number " + val + " has been removed.");
         if (val == minStack.peek()) {
