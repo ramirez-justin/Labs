@@ -23,9 +23,9 @@ public class TicTacToe {
     public static void printCurrentBoard(String[][] gameBoard) {
         System.out.printf(" %s | %s | %s\n", gameBoard[0][0], gameBoard[0][1], gameBoard[0][2]);
         System.out.println("- - - - - -");
-        System.out.printf(" %s | %s | %s\n", gameBoard[0][0], gameBoard[0][1], gameBoard[0][2]);
+        System.out.printf(" %s | %s | %s\n", gameBoard[1][0], gameBoard[1][1], gameBoard[1][2]);
         System.out.println("- - - - - -");
-        System.out.printf(" %s | %s | %s\n", gameBoard[0][0], gameBoard[0][1], gameBoard[0][2]);
+        System.out.printf(" %s | %s | %s\n", gameBoard[2][0], gameBoard[2][1], gameBoard[2][2]);
 
     }
 
@@ -41,11 +41,39 @@ public class TicTacToe {
 
     // Returns "X" or "O" if there is a clear winner, or " " if there is no winner
     public static String getWinner(String[][] gameBoard) {
-        if () {
-
-        } else if () {
-
-        } else
+        if (gameBoard[0][0] == "X" && gameBoard[0][1] == "X" && gameBoard[0][2] == "X")
+            return "X";
+        else if (gameBoard[1][0] == "X" && gameBoard[1][1] == "X" && gameBoard[1][2] == "X")
+            return "X";
+        else if (gameBoard[2][0] == "X" && gameBoard[2][1] == "X" && gameBoard[2][2] == "X")
+            return "X";
+        else if (gameBoard[0][0] == "X" && gameBoard[1][0] == "X" && gameBoard[2][0] == "X")
+            return "X";
+        else if (gameBoard[0][1] == "X" && gameBoard[1][1] == "X" && gameBoard[2][1] == "X")
+            return "X";
+        else if (gameBoard[0][2] == "X" && gameBoard[1][2] == "X" && gameBoard[2][2] == "X")
+            return "X";
+        else if (gameBoard[0][0] == "X" && gameBoard[1][1] == "X" && gameBoard[2][2] == "X")
+            return "X";
+        else if (gameBoard[0][2] == "X" && gameBoard[1][1] == "X" && gameBoard[2][0] == "X")
+            return "X";
+        else if (gameBoard[0][0] == "O" && gameBoard[0][1] == "O" && gameBoard[0][2] == "O")
+            return "O";
+        else if (gameBoard[1][0] == "O" && gameBoard[1][1] == "O" && gameBoard[1][2] == "O")
+            return "O";
+        else if (gameBoard[2][0] == "O" && gameBoard[2][1] == "O" && gameBoard[2][2] == "O")
+            return "O";
+        else if (gameBoard[0][0] == "O" && gameBoard[1][0] == "O" && gameBoard[2][0] == "O")
+            return "O";
+        else if (gameBoard[0][1] == "O" && gameBoard[1][1] == "O" && gameBoard[2][1] == "O")
+            return "O";
+        else if (gameBoard[0][2] == "O" && gameBoard[1][2] == "O" && gameBoard[2][2] == "O")
+            return "O";
+        else if (gameBoard[0][0] == "O" && gameBoard[1][1] == "O" && gameBoard[2][2] == "O")
+            return "O";
+        else if (gameBoard[0][2] == "O" && gameBoard[1][1] == "O" && gameBoard[2][0] == "O")
+            return "O";
+        else 
             return " ";
     }
 
