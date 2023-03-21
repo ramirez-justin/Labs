@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class TicTacToe {
     public static void main(String[] args) {
         runGame();
@@ -5,9 +7,16 @@ public class TicTacToe {
 
     // The game loop
     public static void runGame() {
+        Scanner sc = new Scanner(System.in);
         String[][] gameBoard = new String[3][3];
+        int row, column;
+        Boolean xTurn;
         initializeGame(gameBoard);
         printCurrentBoard(gameBoard);
+        System.out.println("Please enter the row THEN the column, each from 0, 1 or 2, separated by a space:");
+        x = sc.nextInt();
+        y = sc.nextInt();
+        sc.close();
     }
 
     // Sets cells of 2D array to spaces
@@ -26,12 +35,11 @@ public class TicTacToe {
         System.out.printf(" %s | %s | %s\n", gameBoard[0][0], gameBoard[0][1], gameBoard[0][2]);
         System.out.println("- - - - - -");
         System.out.printf(" %s | %s | %s\n", gameBoard[0][0], gameBoard[0][1], gameBoard[0][2]);
-
     }
 
     // gets the user input and if valid, sets the game board appropriately
     public static void getUserInput(boolean xTurn, String[][] gameBoard) {
-
+        
     }
 
     // Returns true if a given cell, by row and column, is already full
