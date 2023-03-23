@@ -4,8 +4,9 @@ public class TicTacToe {
     public static void main(String[] args) {
         runGame();
     }
-
-    // Controls the flow of the game
+    /**
+     * Controls the flow of the game
+     */ 
     public static void runGame() {
         Scanner sc = new Scanner(System.in); // Scanner for input
         String[][] gameBoard = new String[3][3]; // gameBoard matrix
@@ -32,7 +33,10 @@ public class TicTacToe {
         sc.close();
     }
 
-    // Sets cells of 2D array to spaces
+    /**
+     * Sets cells of 2D array to spaces
+     * @param gameBoard
+     */ 
     public static void initializeGame(String[][] gameBoard) {
         for (int i = 0; i < gameBoard.length; i++) {
             for (int j = 0; j < gameBoard[i].length; j++) {
@@ -41,7 +45,10 @@ public class TicTacToe {
         }
     }
 
-    // Prints whatever is in the current board
+    /**
+     * Prints whatever is in the current board
+     * @param gameBoard
+     */ 
     public static void printCurrentBoard(String[][] gameBoard) {
         System.out.printf(" %s | %s | %s\n", gameBoard[0][0], gameBoard[0][1], gameBoard[0][2]);
         System.out.println("- - - - - -");
@@ -51,7 +58,12 @@ public class TicTacToe {
 
     }
 
-    // gets the user input and if valid, sets the game board appropriately
+    /**
+     * gets the user input and if valid, sets the game board appropriately
+     * @param xTurn true if it is X's turn
+     * @param gameBoard current game board 
+     * @param sc Scanner object from runGame() method
+     */ 
     public static void getUserInput(boolean xTurn, String[][] gameBoard, Scanner sc) {
         int row, column;
         System.out.println("Please enter the row THEN the column, each from 0, 1 or 2, separated by a space:");
