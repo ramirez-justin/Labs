@@ -1,4 +1,7 @@
-
+//Justin Ramirez
+//CSC 2720
+//Class time: TTH 1415
+//Due time: 3/23
 public class DataStructuresAssignment33 {
     /** 
      * Test Cases:
