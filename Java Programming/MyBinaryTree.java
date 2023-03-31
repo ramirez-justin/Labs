@@ -27,6 +27,9 @@ public class MyBinaryTree {
 
         System.out.print("\nPost-order traversal: ");
         tree.postOrder(tree.root);
+        System.out.println();
+        tree.printKth(tree.root, 3);
+        tree.isBST(tree.root);
     }
 
     // Class to represent Tree node 
@@ -80,5 +83,24 @@ public class MyBinaryTree {
         postOrder(node.left);
         postOrder(node.right);
         System.out.print(node.data + " ");
+    }
+
+    public void printKth(Node node, int x) {
+        if (node == null)
+            return;
+        printKth(node.left,x-1);
+        if (x == 0)
+            System.out.println(node.data);
+        printKth(node.right, x-1);
+    }
+
+    public boolean isBST(Node node) {
+        if (node == null)
+            return true;
+        else if (node.left.data > node.data)
+            return false;
+        else if (node.right.data < node.data)
+            return false;
+        return isBST(node.left) && isBST(node.right);
     }
 }
