@@ -1,18 +1,50 @@
-first_name = "ada"
-last_name = "lovelace"
-full_name = f"{first_name} {last_name}"
-print(f"Hello, {full_name.title()}")
 
+movie_list = []
 
-def bubbleSort(arr):
-    n = len(arr)
+# Add new movies to my collection
+def addMovie(movie_list):
+    title = input("Enter the movie title: ")
+    director = input("Enter the movie director: ")
+    year = input("Enter the movie release year: ")
+
+    movie_list.append({
+        'title': title, 
+        'director': director, 
+        'year': year
+    })
+
+# List all Movies in my collectiong
+def listMovies(movie_list):
+    [printMovie(movie)for movie in movie_list]
+         
+
+# Find movie using movie title(search)
+def findMovie(movie_list):
+    user = input("Please enter title of the movie to search for: ")
+    printMovie(movie_list.fromkeys('title', user))
+
+# Prints Movies in nice format
+def printMovie(movie):
+    print(f"Title: {movie['title']}")
+    print(f"Director: {movie['director']}")
+    print(f"Year: {movie['year']}")
+
+# Main Method
+if __name__ == "__main__":
+    menu_prompt = """\nPlease enter 'A' to add a movie to collection, 
+            \n'L' to list all movies in collection, 
+            \n'F' to search for a movie in the collection, 
+            \nor 'Q' to quit: """
     
-    # Traverse through all array elements
-    for i in range(n):
-        # Last i elements are already sorted
-        for j in range(0, n-i-1):
-            # Swap if the element found is greater than the next element
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
-                
-    return arr
+    user = input(menu_prompt)
+    while user != 'Q':
+        if user == 'A':
+            addMovie(movie_list)
+        elif user == 'L':
+            listMovies(movie_list)
+        elif user == 'F':
+            findMovie(movie_list)
+        else:
+            print("Unknown command used. Please enter a proper command.")
+        user = input(menu_prompt)
+
