@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "strcpy.C": "cpp",
+        "stdio.h": "c"
+    }
+}

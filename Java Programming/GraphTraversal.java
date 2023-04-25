@@ -3,7 +3,22 @@
 // Class Time: TH 1415
 // Due time: 4/11/2023 @ 2359
 import java.util.*;
-
+/*
+ * Test Cases:
+ * Graph g = new Graph(4);
+ * Expected output: 0 1 2 3
+ * 
+ * Graph g = new Graph(3);
+ * g.addEdge(0, 1);
+ * Expected output: 0 1
+ * 
+ * Graph g = new Graph(4);
+ * g.addEdge(0, 1);
+ * g.addEdge(1, 2);
+ * g.addEdge(2, 0);
+ * g.addEdge(2, 3);
+ * Expected output: 0 1 2 3
+ */
 
 public class GraphTraversal {
     public static void main(String[] args) {
@@ -21,11 +36,10 @@ public class GraphTraversal {
     }
 
 
-    /* Class representing a directed graph using adjacency lists */
     static class Graph {
         int V; //Number of Vertices
         LinkedList<Integer>[] adj; // adjacency lists
-        //Constructor
+    
         Graph(int V) {
             this.V = V;
             adj = new LinkedList[V];
@@ -33,10 +47,9 @@ public class GraphTraversal {
                 adj[i] = new LinkedList<Integer>();
             }
         }
-
-        //To add an edge to graph
+    
         void addEdge(int v, int w) {
-            adj[v].add(w); // Add w to the list of v.
+            adj[v].add(w);
         }
     }
 

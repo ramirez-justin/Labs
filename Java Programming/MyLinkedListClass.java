@@ -4,16 +4,18 @@
 //Due time: 2/26/2023 @ 11:59PM
 
 public class MyLinkedListClass {
-    Node head;  // first object in my linked list
+    private Node head;  // first object in my linked list
+    
     static class Node {
         int data;
         Node next;
         
         Node(int data) {    // Create a node
-        this.data = data;
-        this.next = null; 
+            this.data = data;
+            this.next = null; 
         }
     }
+
     /* Test Cases:
      * No Nodes in linked list;  if (head == null)
      * Tested different N
@@ -29,17 +31,43 @@ public class MyLinkedListClass {
         myList.add(21);
         myList.add(40);
         myList.add(71);
+        
         // print original myList
         System.out.println("Here is the original List:");
         myList.printList();
+        
         // remove Nth from last
         myList.removeNthFromLast(2);
+        
         // print new myList
         System.out.println("Here is the new List:");
         myList.printList();
+
+        // insert new node at head
+        myList.insertAtHead(15);
+        System.out.println("Here is the new list after adding at head:");
+        myList.printList();
+
+        // Length of linked list
+        System.out.println("Here is the length myList:\n" + myList.length());
+
+        // Search for 71
+        System.out.println("Here is the position of 71\n" + myList.find(71));
     }
 
-    void removeNthFromLast(int n) {     // method to remove the Nth from last node of a linked list
+    public int find(int data) {
+        Node curr = head;
+        int i = 0;
+        while (curr != null) {
+            if (curr.data == data)
+                return i;
+            i++;
+            curr = curr.next;
+        }
+        return -1;
+    }
+
+    public void removeNthFromLast(int n) {     // method to remove the Nth from last node of a linked list
         Node slow = head, fast = head;  // initializing two pointers at the beggining of the linked list
         while (n != 0) {                // set fast pointer to n nodes ahead 
             fast = fast.next;           
@@ -58,13 +86,32 @@ public class MyLinkedListClass {
             head = new Node(new_data);
             return;
         }
+
         new_node.next = null; // sets next as null
         Node last = head;       // new pointer to find the end of the list
         while (last.next != null) {     // while loop to find the end of the list
             last = last.next;
         }
+
         last.next = new_node;   // insert new node at end of list
         return;
+    }
+
+    public void insertAtHead(int new_data) {    // method to insert a new node at the head of the linked list
+        Node new_node = new Node(new_data); 
+        new_node.next = head;
+        head = new_node;
+    }
+
+    public int length() {
+        Node n = head;
+        int len = 0;
+
+        while (n != null) {
+            len++;
+            n = n.next;
+        }
+        return len;
     }
 
     public void printList() {       // method to print each node in a linked list
