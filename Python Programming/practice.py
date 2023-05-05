@@ -9,11 +9,17 @@ class Student:
         self.name = new_name
         self.grades = new_grades
         
-    def __repr__(self) -> str: #
-        pass
-    def __str__(self) -> str:
-        pass
 
 student_one = Student('Rolf Smith', [70, 88, 90, 99])
 
 
+
+class Asset:
+    def __init__(self, name, ticker, price):
+        self.name = name
+        self.ticker = ticker
+        self.price = price
+    
+def get_price(asset):
+        return asset.price
+    
