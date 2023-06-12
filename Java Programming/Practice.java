@@ -1,7 +1,22 @@
 import java.util.*;
 public class Practice {
     public static void main(String[] args) {
-        
+        int[] arr = {1, 2, 3, 2, 1, 4, 5, 4, 6};
+        int[] result = removeDuplicates(arr);
+        System.out.println(Arrays.toString(result));
+    }
+
+    public static int[] removeDuplicates(int[] arr) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < arr.length; i++) {
+            set.add(arr[i]);
+        }
+        int[] result = new int[set.size()];
+        int index = 0;
+        for (Integer num : set) {
+            result[index++] = num;
+        }
+        return result;
     }
 
     public static int sumElements(ArrayList<Integer> numsList) {
